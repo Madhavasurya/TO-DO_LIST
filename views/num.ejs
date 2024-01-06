@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <style>
+        body {
+            text-align: center;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/7e1dbd97c6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1><i class="fa-regular fa-address-book"></i> Contact</h1>
+    <ul>
+        <% for(let i of stu){%>
+            <li>
+                <i class="fa-solid fa-user fa-beat-fade"></i>
+                <%= i.name %>
+                    <%= i.phone %>
+                        <%= i.dept %>
+                            <br>
+
+                            <div>
+                                <a href="/delete-contact/<%=i.phone%>"><i class="fa-sharp fa-solid fa-trash fa-shake"></i></a>
+                            </div>
+            </li>
+
+            <%}%>
+    </ul>
+    <form action="/data" method="post">
+        <input type="text" name="fullname" placeholder="enter your name" required>
+        <input type="number" name="phone" placeholder="enter your number" required>
+        <input type="text" name="dept" placeholder="enter your department" required>
+        <button type="submit">submit</button>
+    </form>
+</body>
+
+</html>

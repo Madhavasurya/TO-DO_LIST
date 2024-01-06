@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <style>
+        body {
+            text-align: center;
+            align-content: center;
+            align-self: center;
+            align-items: center;
+            padding-left:  5%;
+            background-image:url(https://cdn.wallpapersafari.com/66/6/1VePi0.jpg);
+            background-size: cover; 
+        }
+        h1 {
+           background-color:  rgb(255, 102, 102);
+           color: white;
+           text-shadow: 2px 2px black;
+       
+        }
+      
+        .abc{
+            background-color: rgb(221, 221, 221);
+            cursor: pointer;
+        }
+        button{
+            background-color: rgb(247, 76, 76);
+            font-family: 'Times New Roman', Times, serif ;
+            color: black;
+            font-size: 35px;
+            text-shadow: 1px 1px black;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+        }
+        button:hover {
+        background-color: black;
+        color: red;
+        }
+        .output{
+            background-color: whitesmoke;
+            color: aliceblue;
+           width: 100%;
+        }
+        .btt{
+            border: black;
+            background-color: lightcyan;
+            padding: 10px;
+            display: grid;
+            gap: 4px;
+            margin-bottom: 2%;
+            text-decoration-color: #fff;
+            color: black;
+            text-align: left;
+        }
+        *{
+        
+        margin: 4px 2px;
+        padding: 20px 100px 20px 100px;
+        box-sizing:border-box;
+        font-family: sans-serif;
+        font-size: large;
+        }
+        .dlt{
+            text-align: end;
+        }
+        
+    </style>
+    <script src="https://kit.fontawesome.com/7e1dbd97c6.js" crossorigin="anonymous"></script>
+</head>
+
+<body><div class="bodk">
+    <h1>
+        <i class="fa-solid fa-table-list"> TO-DO LIST</i></h1>
+    <form class="abc" action="/add-data" method="post">
+       <input type="text" name="item" placeholder="TO-DO work" required><br>
+        <select name="type" id="type">
+            <option value="">Category</option>
+            <option value="Personal">Personal</option>
+            <option value="School">School</option>
+            <option value="College">College</option>
+            <option value="Work">Work</option>
+            <option value="Others">Others</option></select>
+        <br><input type="date" name="date" placeholder="Due date" ><br>
+        <button type="submit">Submit</button>
+    </form>
+    <ul class="output">
+       <h1>TO-DO TASK LIST</h1>
+        <% for(let i of list_data){%>
+            <div class="btt">
+            <li>
+            <%= i.description %>    TODO WORK: <br>
+                <%= i.item %><br><br> CATEGORY: <br>
+                    <%= i.type %><br><br> DATE: 
+                    <br>
+                        <!-- <%= i.Category %> -->
+                            <%= i.date %>
+                                <div class="dlt">
+                                    <a style="color: red;" href="/delete-list/?id=<%=i._id%>"><i class="fa-sharp fa-solid fa-trash"> DELETE</i></a>
+                                </div>
+            </li>
+        </div>
+            <%}%>
+    </ul>
+</div>
+
+</body>
+
+</html>
