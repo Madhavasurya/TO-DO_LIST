@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const path=require('path');
-const port=8143;
+const port=8144;
 const list=require('./models/schema');
 const db=require('./config/mongoose');
 app.set('views', path.join(__dirname, 'views'));
